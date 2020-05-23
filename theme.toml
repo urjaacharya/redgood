@@ -3,9 +3,9 @@
 
 name = "redgood"
 license = "MIT"
-licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
+licenselink = "https://github.com/urjaacharya/redgood/blob/master/LICENSE"
 description = "Clean minimal javascript-less theme for blogs."
-homepage = "http://example.com/"
+homepage = "https://github.com/urjaacharya/redgood"
 tags = ["personal", "blog",]
 features = ["clean", "responsive", "minimal", "no javascript"]
 min_version = "0.71.0"
