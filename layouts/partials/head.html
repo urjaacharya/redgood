@@ -1,0 +1,25 @@
+<head>
+  <title>
+    {{ .Site.Title }}
+    {{ if and (not .IsHome) (.Title) }}
+    - {{ .Title }}
+    {{ end }}
+  </title>
+  <meta name="theme-color" content="" />
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta name="description" content="{{ .Site.Params.description }}" />
+  <meta name="author" content="{{ .Site.Params.author }}" />
+
+  <link rel="stylesheet" href="{{ `/css/main.css` | relURL }}" />
+  <link rel="stylesheet" href="{{ `/css/pagination.css` | relURL }}" />
+  <link rel="stylesheet" href="{{ `/css/prevnext.css` | relURL }}" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap"
+    rel="stylesheet"
+  />
+</head>

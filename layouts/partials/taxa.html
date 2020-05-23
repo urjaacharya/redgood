@@ -1,0 +1,19 @@
+{{ $scratch := newScratch }}
+{{ $scratch.Delete "custom" }}
+{{ range $name, $value := .taxo }}
+{{ $scratch.Add "custom" (slice (dict "Name" $name "Value" $value "Num" (len $value))) }}
+{{ end }}
+
+{{ range sort ($scratch.Get "custom") ".Num" "desc" }}
+{{ $taxaTypeName := .Name }}
+<h3>
+  {{ $taxaTypeName | humanize }}
+</h3>
+{{ $this_taxa := index $.taxo .Name }}
+<div class="taxa-container home-page-card">
+  {{ range $this_taxa.ByCount }}
+  {{ $taxaValueName := .Page.Title }}
+    <a class="taxa" href="{{ .Page.Permalink }}" aria-label="site taxonomies">{{ .Page.Title }}</a>
+  {{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,37 @@
+
+
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+    <head>
+        <title>
+          Recent Posts
+        </title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta name="description" content="Recent Posts" />
+        <meta name="author" content="{{ .Site.Params.author }}" />
+      
+        <link rel="stylesheet" href="{{ `/css/main.css` | relURL }}" />
+        <link rel="stylesheet" href="{{ `/css/pagination.css` | relURL }}" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+  <body>
+    {{$paginator := .Paginate (where .Site.Pages "Kind" "page").ByDate.Reverse 3 }}
+    <main>
+        {{ range $paginator.Pages }}
+        {{ partial "listPage" . }}
+        {{ end }}
+        <div>
+            {{ template "_internal/pagination.html" . }}
+        </div>
+       
+    </main>
+    
+  </body>
+</html>

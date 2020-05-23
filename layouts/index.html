@@ -1,0 +1,41 @@
+{{ define "main" }}
+{{ range ((where .Site.Pages "Params.pinned" true).ByDate.Reverse) | first 1 }}
+<h3>
+  <a href="{{ .Permalink }}" aria-label="site title">{{ .Title }}</a>
+</h3>
+<div class="pinned-post home-page-card">
+  <p>{{ .Summary | plainify | truncate 250 }}</p>
+  <div class="home-page-card-links">
+    <a href="{{ .Permalink }}" aria-label="click to read the pinned post">
+      Read More
+    </a>
+  </div>
+  <div class="home-page-card-links">
+    <a href="{{ `pinnedposts` | relURL }}">All Pinned</a>
+  </div>
+</div>
+{{ end }}
+
+<h3>Recent Posts</h3>
+<div class="recent-posts home-page-card">
+  {{ range ((where .Site.Pages "Kind" "page").ByDate.Reverse) | first 6 }}
+  {{ partial "listPage" . }}
+  {{ end }}
+  <div class="home-page-card-links">
+    <a href="{{ `archive` | relURL }}" aria-label="link to all posts"
+      >All Posts</a
+    >
+  </div>
+</div>
+
+<h3>Sections</h3>
+<div class="site-sections home-page-card">
+  {{ range .Site.Sections }}
+  {{ if not .Params.hideFromHome }}
+  <p>
+    <a href="{{ .Permalink }}" aria-label="site sections">{{ .Title }}</a> - {{ len .Pages}} Articles
+  </p>
+  {{ end }} {{ end }}
+</div>
+{{ partial "taxa" (dict "taxo" .Site.Taxonomies "mysite" .) }}
+{{ end }}

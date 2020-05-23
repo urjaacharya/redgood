@@ -1,0 +1,27 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "redgood"
+theme = "redgood"
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[params]
+author = "Urja Acharya"
+description = "redgood is a clean minimal javascript-less theme for blogs"
+
+[params.theme]
+dateFormat = "2006-01-02"
+copyrightInFooter = true
+footerText = "Short [text](#) **in** *footer*"
+
+[params.about]
+profileImage = "https://images.pexels.com/photos/1274922/pexels-photo-1274922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+narrative = "I am dshfsdj flaksdjf lsjfasl dkfjlsdkfj lasdkfj. lasdkfj asdlkjf adlskf jlsakdf jasldkjfa **sdjfosdafjl** aksdfjsdfjk alskdjf. oasdif jioasdfj asdiof *jasdlkfj* asdf asdfu asdijfl kaejkljrwlk jwlkejrwejr ssad."
+
+[params.social]
+email = "#"
+linkedin = "#"
+fb = "#"
+twitter = "#"
+github = "#"

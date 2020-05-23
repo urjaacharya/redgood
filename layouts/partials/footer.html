@@ -1,0 +1,53 @@
+<footer>
+  {{ if eq .Kind "section" }}
+  <div>
+    {{ template "_internal/pagination.html" . }}
+  </div>
+  {{ end }} {{ if eq .Kind "page" }}
+  <div class="prev-next">
+    {{- if .PrevInSection }}
+    <a
+      class="active"
+      href="{{ .PrevInSection.Permalink | relURL }}"
+      aria-label="Previous Article"
+      >Previous</a
+    >
+    {{- else }}
+    <div class="disabled">N/A</div>
+    {{- end }}
+    <a href="#" aria-label="to top">Top</a>
+    {{- if .NextInSection }}
+    <a
+      class="active"
+      href="{{ .NextInSection.Permalink | relURL }}"
+      aria-label="Next Article"
+      >Next</a
+    >
+    {{- else }}
+    <div class="disabled">N/A</div>
+    {{- end }}
+  </div>
+  {{ end }}
+
+  <div class="footer">
+    <p>
+      {{ if .Site.Params.theme.copyrightInFooter }}
+      &copy;
+      {{end}}
+      {{ dateFormat "2006" now }} {{ .Site.Params.author }}.
+      {{ .Site.Params.theme.footerText | markdownify }}.
+    </p>
+    <p>
+      <a href="#">
+        {{- print "redgood" -}}
+      </a>
+      by
+      <a
+        href="https://www.urjaacharya.com/"
+        aria-label="link to urja acharya site"
+      >
+        {{- print "urja" -}}
+      </a>
+    </p>
+  </div>
+</footer>

@@ -1,0 +1,12 @@
+<div class="list-page-data">
+  <time class="list-page-date">
+    {{- dateFormat .Site.Params.theme.dateFormat .Date }}
+  </time>
+  <a
+    class="archive-table-link"
+    href="{{ .Permalink }}"
+    aria-label="{{ .Title }}"
+  >
+    {{ .Title }}
+  </a>
+</div>

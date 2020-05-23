@@ -1,0 +1,37 @@
+<header>
+  <div class="header-image-container">
+    <div class="header-image">
+      <img src="{{ .Site.Params.about.profileImage | relURL }}" alt="profile image of {{ .Site.Params.author }}"/>
+    </div>
+  </div>
+  <div class="header-info">
+    {{ if not .IsHome }}
+    <a class="home-icon" href="{{ `/` | relURL }}" aria-label="home page">
+      {{ partial "homeIcon" . }}
+    </a>
+    {{ else }}
+    <h1 class="site-title">{{- .Site.Title -}}</h1>
+    {{ end }}
+
+    <p>
+      <span class="site-title home-{{ .IsHome }}">
+        {{ if not .IsHome }} {{ .Site.Title }} {{ end }}
+      </span>
+      {{ .Site.Params.about.narrative | markdownify }}
+    </p>
+
+    <div class="social-info">
+      {{ range $key, $val := .Site.Params.social }}
+      <small>
+        <a
+          class="social-link"
+          href="{{ $val }}"
+          aria-label="social media links"
+        >
+          {{- $key -}}
+        </a>
+      </small>
+      {{ end }}
+    </div>
+  </div>
+</header>
