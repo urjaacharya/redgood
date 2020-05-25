@@ -9,7 +9,7 @@
   --shadow: black;
 }
 html {
-  font-size: 18px;
+  font-size: 16px;
   overflow-y: scroll;
   background-color: var(--bg);
   box-sizing: border-box;
@@ -218,20 +218,21 @@ svg {
   box-shadow: inset 0 0 2px var(--shadow);
   transition: box-shadow 0.1s;
 }
-.home-icon svg:hover {
-  box-shadow: inset 0 0 6px var(--shadow);
-}
-.home-icon svg:active {
-  box-shadow: inset 0 0 10px var(--shadow);
-}
 .social-link {
   color: var(--bg);
-  margin-right: 0.25em;
-  font-weight: 600;
+  padding: 0.15em 0.35em;
+  border-radius: 5px;
+  font-size: 0.9em;
+  font-weight: 300;
 }
-.social-link::before {
-  content: "@";
-  font-family: "Inconsolata", monospace;
+.home-icon svg:hover,
+.social-link:hover {
+  box-shadow: inset 0 0 6px var(--shadow);
+  text-decoration: none;
+}
+.home-icon svg:active,
+.social-link:active {
+  box-shadow: inset 0 0 10px var(--shadow);
 }
 .archive-table {
   width: 100%;
