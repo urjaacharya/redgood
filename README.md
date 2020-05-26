@@ -3,27 +3,27 @@
 `redgood` is a clean minimal javascript-less [hugo](https://gohugo.io/) theme for blogs.
 
 ## Installation
-1. Add this theme as a git submodule in `themes` folder of your Hugo site:
 
-    ```git submodule add https://github.com/urjaacharya/redgood.git themes/redgood```
+If the site is not a git repo, it is necessary to first run `git init`. Run the following command in the site root directory to add `redgood` as a submodule:
 
-    To run the above command, the folder of your hugo site must be a git repository. If it is not a git repository run `git init` to initialize the folder as git repository before running the above command.
+    git submodule add https://github.com/urjaacharya/redgood.git themes/redgood
+
 
 ## Getting started
-1. Copy the contents of `config.toml` file of the theme to your site's `config.toml` file and update it as needed.
-2. Copy the contents of `exampleSite/content` to your site's `content` folder.
-3. Run `hugo server` in the terminal to view your site with the theme.
+
+1. Copy the contents of [`config.toml`](https://github.com/urjaacharya/redgood/blob/master/exampleSite/config.toml) in the [exampleSite](https://github.com/urjaacharya/redgood/tree/master/exampleSite) folder to a `config.toml` in the site root directory and update it as needed.
+2. Copy all the contents from [`exampleSite/content`](https://github.com/urjaacharya/redgood/tree/master/exampleSite/content) to a `content` folder in the root directory. At the least, the folders `archive` and `pinnedPosts` need to be copied.
+3. Run `hugo server` to begin developing.
 
 ## Adding contents
-The contents of your site should be in `contents` folder in the root directory. After following the forementioned steps, the `contents` directory should have `archive`, `pinnedPosts` and other additional folders. 
-1. Remove all the folders except `archive` and `pinnedPosts`.
-2. Create a folder inside the `contents` folder and then,
-    - Create a new file `_index.md` inside the folder, and add `title` and `weight`. Refer to the `_index.md` file [here](https://github.com/urjaacharya/redgood/blob/master/exampleSite/content/post/_index.md).
-    - Add your markdown contents to the folder.
-3. If you want to categorize your posts then create separate folders for each category as mentioned in step 2 and add the markdown contents of belonging to each category in the specific folders. Make sure to add `_index.md` in each of these folders.
+
+The contents of your site should be in `content` folder in the root directory. The folders is the `content` folder represent dfferent sections. The `archive` and `pinnedPosts` are special sections for displaying all posts and pinned posts, respectively.
+
+Additional content directories for more content sections can be added as required. When adding new folders, also create a new  `_index.md` file inside each folder and add `title` and `weight` relevant for that section. Refer to [`_index.md`](https://github.com/urjaacharya/redgood/blob/master/exampleSite/content/post/_index.md) for an example.
 
 ## Contributing
-To contribute to the theme or report bugs, please create an issue [here](https://github.com/urjaacharya/redgood/issues).
+
+For comments, questions, and bugs, please create an issue [here](https://github.com/urjaacharya/redgood/issues).
 
 
 
