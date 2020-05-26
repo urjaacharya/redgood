@@ -21,17 +21,15 @@
     </p>
 
     <div class="social-info">
-      {{ range $key, $val := .Site.Params.social }}
-      <small>
+      {{- range $key, $val := .Site.Params.social -}}    
         <a
           class="social-link"
           href="{{ $val }}"
           aria-label="social media links"
         >
           {{- $key -}}
-        </a>
-      </small>
-      {{ end }}
+        </a>    
+      {{- end -}}
     </div>
   </div>
 </header>
