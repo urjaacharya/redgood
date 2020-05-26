@@ -2,7 +2,7 @@
 
 `redgood` is a clean minimal javascript-less [hugo](https://gohugo.io/) theme for blogs. 
 
-## [Demo](https://redgood.netlify.app/)
+[**Demo**](https://redgood.netlify.app/)
 
 ## Installation
 
