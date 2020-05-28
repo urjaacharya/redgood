@@ -19,9 +19,13 @@ If the site is not a git repo, it is necessary to first run `git init`. Run the 
 
 ## Adding contents
 
-The contents of your site should be in `content` folder in the root directory. The folders is the `content` folder represent dfferent sections. The `archive` and `pinnedPosts` are special sections for displaying all posts and pinned posts, respectively.
+The contents of your site should be in `content` folder in the root directory. The folders in the `content` folder represent dfferent sections. The `archive` and `pinnedPosts` are special sections for displaying all posts and pinned posts, respectively.
 
 Additional content directories for more content sections can be added as required. When adding new folders, also create a new  `_index.md` file inside each folder and add `title` and `weight` relevant for that section. Refer to [`_index.md`](https://github.com/urjaacharya/redgood/blob/master/exampleSite/content/post/_index.md) for an example.
+
+### Pinned posts
+
+The theme allows for pinning posts. All pinned posts will be shown in a dedicated section (`/pinnedposts/`) and the most recent one will also be displayed at the top in the home page. For pinning posts, add `pinned = true` (or `pinned: true`) in the front matter of the markdown file for the post. Here is an  [`example of pinned content`](https://github.com/urjaacharya/redgood/blob/master/exampleSite/content/post/markdown-syntax.md) for more information.
 
 ## Contributing
 
