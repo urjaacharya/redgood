@@ -2,7 +2,7 @@
 <h1>{{ .Title }}</h1>
 {{$paginator := .Paginate (where .Site.Pages "Params.pinned" true).ByDate.Reverse 5 }}
 {{ range $paginator.Pages }}
-<h3><a href="{{ .Permalink }}" aria-label="{{ .Title }}">{{ .Title }}</a></h3>
+<h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
 <time>{{ dateFormat .Site.Params.theme.dateFormat .Date }}</time>
 <p>{{ .Summary | truncate 200 }}</p>
 {{ end }}

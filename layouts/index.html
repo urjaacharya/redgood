@@ -1,13 +1,13 @@
 {{ define "main" }}
 {{ range ((where .Site.Pages "Params.pinned" true).ByDate.Reverse) | first 1 }}
 <h3>
-  <a href="{{ .Permalink }}" aria-label="site title">{{ .Title }}</a>
+  <a href="{{ .Permalink }}">{{ .Title }}</a>
 </h3>
 <div class="pinned-post home-page-card">
   <p>{{ .Summary | plainify | truncate 250 }}</p>
   <div class="home-page-card-links">
-    <a href="{{ .Permalink }}" aria-label="click to read the pinned post">
-      Read More
+    <a href="{{ .Permalink }}">
+      Read Pinned Post
     </a>
   </div>
   <div class="home-page-card-links">
@@ -22,7 +22,7 @@
   {{ partial "listPage" . }}
   {{ end }}
   <div class="home-page-card-links">
-    <a href="{{ `archive` | relURL }}" aria-label="link to all posts"
+    <a href="{{ `archive` | relURL }}"
       >All Posts</a
     >
   </div>

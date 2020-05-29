@@ -13,7 +13,7 @@
 <div class="taxa-container home-page-card">
   {{ range $this_taxa.ByCount }}
   {{ $taxaValueName := .Page.Title }}
-    <a class="taxa" href="{{ .Page.Permalink }}" aria-label="site taxonomies">{{ .Page.Title }}</a>
+    <a class="taxa" href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
   {{ end }}
 </div>
 {{ end }}
