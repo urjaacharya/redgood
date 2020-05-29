@@ -13,19 +13,21 @@
     <h1 class="site-title">{{- .Site.Title -}}</h1>
     {{ end }}
 
-    <p>
-      <span class="site-title home-{{ .IsHome }}">
+    <div>
+      <p class="site-title home-{{ .IsHome }}">
         {{ if not .IsHome }} {{ .Site.Title }} {{ end }}
-      </span>
+      </p>
+      <p class="about-narrative">
       {{ .Site.Params.about.narrative | markdownify }}
-    </p>
+      </p>
+    </div>
 
     <div class="social-info">
       {{- range $key, $val := .Site.Params.social -}}    
         <a
           class="social-link"
           href="{{ $val }}"
-          aria-label="social media links"
+          aria-label="{{ $key }}"
         >
           {{- $key -}}
         </a>    

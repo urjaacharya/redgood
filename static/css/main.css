@@ -67,6 +67,7 @@ header img {
   line-height: 1.5em;
   font-size: 0.9em;
   font-weight: 300;
+  padding: 0em 0.35em;
 }
 .header-image-container {
   height: 275px;
@@ -113,7 +114,8 @@ footer {
 footer p {
   margin: 0;
 }
-.footer a {
+.footer a,
+.about-narrative a {
   color: var(--bg);
   text-decoration: underline;
   font-weight: 600;
@@ -216,6 +218,7 @@ svg {
   display: contents;
 }
 .home-icon svg {
+  margin-left: 0.35em;
   padding: 0.25em;
   border-radius: 5px;
 }
