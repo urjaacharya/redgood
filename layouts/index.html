@@ -1,8 +1,8 @@
 {{ define "main" }}
 {{ range ((where .Site.Pages "Params.pinned" true).ByDate.Reverse) | first 1 }}
-<h3>
+<h2>
   <a href="{{ .Permalink }}">{{ .Title }}</a>
-</h3>
+</h2>
 <div class="pinned-post home-page-card">
   <p>{{ .Summary | plainify | truncate 250 }}</p>
   <div class="home-page-card-links">
