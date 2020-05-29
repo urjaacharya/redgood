@@ -1,0 +1,28 @@
+{
+  "baseURL": "https://redgood.netlify.app/",
+  "languageCode": "en-us",
+  "title": "demo of redgood",
+  "theme": "redgood",
+  "params": {
+    "author": "Urja Acharya",
+    "description": "a hugo theme made by Urja Acharya",
+    "theme": {
+      "dateFormat": "2006-01-02",
+      "copyrightInFooter": false,
+      "footerText": "customizable short *markdown* enabled text"
+    },
+    "about": {
+      "profileImage": "https://images.pexels.com/photos/1274922/pexels-photo-1274922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "h": 650,
+      "w": 940,
+      "narrative": "this website is a demo for the redgood theme made by Urja Acharya. this section is customizable and can be used for a short inroduction by modifying `params.about.narrative` in `config`. markdown can be used in **this** section."
+    },
+    "social": {
+      "email": "#",
+      "linkedin": "#",
+      "fb": "#",
+      "twitter": "#",
+      "github": "#"
+    }
+  }
+}
