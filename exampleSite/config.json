@@ -3,6 +3,7 @@
   "languageCode": "en-us",
   "title": "demo of redgood",
   "theme": "redgood",
+  "disableKinds": "taxonomyTerm",
   "params": {
     "author": "Urja Acharya",
     "description": "a hugo theme made by Urja Acharya",
