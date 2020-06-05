@@ -63,6 +63,7 @@ header img {
 }
 .header-info p {
   color: var(--bg);
+  text-shadow: 0px 0px 2px var(--bgLight);
   margin: 0.25em 0 1em 0;
   line-height: 1.5em;
   font-size: 0.9em;
@@ -236,6 +237,7 @@ svg {
   border-radius: 5px;
   font-size: 0.9em;
   font-weight: 300;
+  text-shadow: 0px 0px 2px var(--bgLight);
 }
 .home-icon svg:hover,
 .social-link:hover {
