@@ -136,13 +136,6 @@ html
 
 ## Miscellaneous `HTML` Tags — `abbr`, `sub`, `sup`, `kbd`, `mark`
 
-For `HTML` in markdown to be rendered, add following to the `config` file:
-
-```
-[markup.goldmark.renderer]
-  unsafe= true
-```
-
 <abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
 
 H<sub>2</sub>O
