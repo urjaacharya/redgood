@@ -1,9 +1,14 @@
-<header>
+<header {{ if .IsHome }}class="home-page-header" {{ end }}>
+  {{ if .IsHome }}
   <div class="header-image-container">
     <div class="header-image">
-      <img src="{{ .Site.Params.about.profileImage | relURL }}" alt="profile image of {{ .Site.Params.author }}"/>
+      <img
+        src="{{ .Site.Params.about.profileImage | relURL }}"
+        alt="profile image of {{ .Site.Params.author }}"
+      />
     </div>
   </div>
+  {{ end }}
   <div class="header-info">
     {{ if not .IsHome }}
     <a class="home-icon" href="{{ `/` | relURL }}" aria-label="home page">
@@ -11,27 +16,14 @@
     </a>
     {{ else }}
     <h1 class="site-title">{{- .Site.Title -}}</h1>
-    {{ end }}
-
-    <div>
-      <p class="site-title home-{{ .IsHome }}">
-        {{ if not .IsHome }} {{ .Site.Title }} {{ end }}
-      </p>
-      <p class="about-narrative">
-      {{ .Site.Params.about.narrative | markdownify }}
-      </p>
-    </div>
-
+    {{ end }} {{ partial "title" . }} {{ if .IsHome }}
     <div class="social-info">
-      {{- range $key, $val := .Site.Params.social -}}    
-        <a
-          class="social-link"
-          href="{{ $val }}"
-          aria-label="{{ $key }}"
-        >
-          {{- $key -}}
-        </a>    
+      {{- range $key, $val := .Site.Params.social -}}
+      <a class="social-link" href="{{ $val }}" aria-label="{{ $key }}">
+        {{- $key -}}
+      </a>
       {{- end -}}
     </div>
+    {{ end }}
   </div>
 </header>

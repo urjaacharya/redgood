@@ -45,13 +45,15 @@ a:hover {
 header {
   background-color: var(--primary);
   margin-top: 5px;
-  min-height: 275px;
   display: flex;
   flex-direction: row;
   justify-content: start;
   flex-wrap: wrap;
 }
-header img {
+header .home-page-header {
+  min-height: 275px;
+}
+header .home-page-header img {
   height: 100%;
 }
 .header-info {
@@ -168,7 +170,7 @@ h6 {
 }
 .site-title.home-false {
   display: block;
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: 600;
   margin-bottom: 0.5em;
   text-decoration: underline;
@@ -251,6 +253,9 @@ svg {
 .archive-table {
   width: 100%;
 }
+.archive-table {
+  margin-top: 1em;
+}
 .home-page-card {
   background-color: var(--bgLight) !important;
   padding: 15px;
@@ -309,6 +314,10 @@ svg {
   font-size: 1.2em;
   padding: 0 0.5em;
   border-radius: 5px;
+}
+.taxonomy-data,
+.list-page {
+  margin-top: 1em;
 }
 .list-page-data {
   display: flex;

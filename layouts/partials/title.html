@@ -1,0 +1,17 @@
+<div>
+  <p class="site-title home-{{ .IsHome }}">
+    {{ if not .IsHome }}
+    {{ if eq .Kind "taxonomy" }}#{{ end }}{{ .Title }}
+    {{ if eq .Kind "page" }}
+    <p>
+      {{ dateFormat .Site.Params.theme.dateFormat .Date }} &middot; {{ .Site.Params.author }}
+    </p>
+    {{ end }}
+    {{ end }}
+  </p>
+  {{ if .IsHome }}
+  <p class="about-narrative">
+    {{ .Site.Params.about.narrative | markdownify }}
+  </p>
+  {{ end }}
+</div>

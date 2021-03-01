@@ -1,6 +1,7 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
+<div class="list-page">
 {{ range (.Paginator 10).Pages }}
 {{ partial "listPage" . }}
 {{ end }}
+</div>
 {{ end }}

@@ -1,9 +1,6 @@
 <head>
   <title>
-    {{ .Site.Title }}
-    {{ if and (not .IsHome) (.Title) }}
-    - {{ .Title }}
-    {{ end }}
+    {{- if and (not .IsHome) (.Title) }} {{ .Title }} - {{ end }} {{ .Site.Title -}}
   </title>
   <meta name="theme-color" content="#a3001b" />
   <meta charset="utf-8" />

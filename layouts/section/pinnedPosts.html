@@ -1,5 +1,4 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
 {{$paginator := .Paginate (where .Site.Pages "Params.pinned" true).ByDate.Reverse 5 }}
 {{ range $paginator.Pages }}
 <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>

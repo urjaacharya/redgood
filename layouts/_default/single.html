@@ -1,7 +1,3 @@
 {{ define "main" }}
-<div class="front-matter">
-  <h1>{{ .Title }}</h1>
-  <p>{{ dateFormat .Site.Params.theme.dateFormat .Date }} &middot; {{ .Site.Params.author }}</p>
-</div>
 {{ .Content }}
 {{ end }}
