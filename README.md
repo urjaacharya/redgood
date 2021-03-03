@@ -2,7 +2,9 @@
 
 `redgood` is a clean minimal javascript-less [hugo](https://gohugo.io/) theme for blogs. 
 
-[**Demo**](https://redgood.netlify.app/)
+## Demo
+
+Here is [live demo](https://redgood.netlify.app/). [![Netlify Status](https://api.netlify.com/api/v1/badges/68a861d0-19b7-4848-aae9-a14e1a8f01b9/deploy-status)](https://app.netlify.com/sites/redgood/deploys)
 
 ## Installation
 
