@@ -8,7 +8,7 @@ description = "Clean minimal javascript-less theme for blogs."
 homepage = "https://github.com/urjaacharya/redgood"
 tags = ["personal", "blog",]
 features = ["clean", "responsive", "minimal", "no javascript"]
-min_version = "0.71.0"
+min_version = "0.80.0"
 
 [author]
   name = "Urja Acharya"
