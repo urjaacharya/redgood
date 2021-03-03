@@ -1,6 +1,6 @@
 <head>
   <title>
-    {{- if and (not .IsHome) (.Title) }} {{ .Title }} - {{ end }} {{ .Site.Title -}}
+    {{ if and (not .IsHome) (.Title) }} {{ .Title }} - {{ end }} {{ .Site.Title }}
   </title>
   <meta name="theme-color" content="#a3001b" />
   <meta charset="utf-8" />
@@ -19,5 +19,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap"
     rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"
   />
 </head>

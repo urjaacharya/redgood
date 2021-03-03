@@ -13,12 +13,13 @@ html {
   overflow-y: scroll;
   background-color: var(--bg);
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 body {
   font-family: "Quicksand", sans-serif;
   font-weight: 400;
-  max-width: 960px;
-  min-width: 300px;
+  max-width: 900px;
+  min-width: 250px;
   margin: auto;
   font-size: 1.2em;
   color: var(--mainText);
@@ -46,31 +47,41 @@ header {
   background-color: var(--primary);
   margin-top: 5px;
   display: flex;
-  flex-direction: row;
   justify-content: start;
   flex-wrap: wrap;
 }
-header .home-page-header {
+.home-page-header {
   min-height: 275px;
+  flex-direction: row;
+  padding-bottom: 0.25em;
 }
-header .home-page-header img {
+.regular-page-header {
+  justify-content: space-between;
+  padding: 0.5em 0 0.5em 0;
+  flex-direction: column;
+  align-items: center;
+}
+.home-page-header img {
   height: 100%;
 }
-.header-info {
-  padding: 10px;
-  width: calc(100% - 300px);
+.header-info,
+.page-title-and-info {
+  padding: 0.25em;
   display: flex;
   flex-direction: column;
+}
+.header-info {
+  width: calc(100% - 300px);
   justify-content: space-between;
 }
-.header-info p {
+.about-narrative,
+.page-title-and-info p {
   color: var(--bg);
   text-shadow: 0px 0px 2px var(--bgLight);
   margin: 0.25em 0 1em 0;
   line-height: 1.5em;
   font-size: 0.9em;
   font-weight: 300;
-  padding: 0em 0.35em;
 }
 .header-image-container {
   height: 275px;
@@ -80,6 +91,9 @@ header .home-page-header img {
   align-items: center;
   box-sizing: border-box;
 }
+.border {
+  border: solid 1px black;
+}
 .header-image {
   height: 230px;
   width: 230px;
@@ -88,14 +102,6 @@ header .home-page-header img {
   display: flex;
   justify-content: center;
   box-shadow: 3px 3px 5px 3px black;
-}
-@media only screen and (max-width: 600px) {
-  header {
-    justify-content: center;
-  }
-  .header-info {
-    width: 100%;
-  }
 }
 footer {
   margin-top: 3em;
@@ -162,19 +168,17 @@ h5 {
 h6 {
   font-size: 1.1em;
 }
-.site-title {
-  font-size: 2.5em;
+.main-title,
+.page-title {
   color: var(--bg);
   margin: 0;
   text-shadow: 3px 3px var(--shadow);
 }
-.site-title.home-false {
-  display: block;
-  font-size: 2em;
-  font-weight: 600;
-  margin-bottom: 0.5em;
-  text-decoration: underline;
-  text-shadow: 2px 2px var(--shadow);
+.main-title {
+  font-size: 2.5em;
+}
+.page-title {
+  font-size: 1.75em;
 }
 .front-matter {
   border-bottom: solid 3px var(--primary);
@@ -214,41 +218,18 @@ svg {
   height: 1em;
   width: 1em;
 }
-.home-icon {
+.header-icon {
   font-size: 1.5em;
   color: var(--bg);
   border-radius: 5px;
-  display: contents;
 }
-.home-icon svg {
-  margin-left: 0.35em;
-  padding: 0.25em;
-  border-radius: 5px;
-}
-.home-icon svg {
-  box-shadow: inset 0 0 2px var(--shadow);
-  transition: box-shadow 0.1s;
+.header-icon:hover {
+  text-shadow: 0px 0px 5px var(--highlight);
 }
 .social-info {
   display: flex;
   flex-wrap: wrap;
-}
-.social-link {
-  color: var(--bg);
-  padding: 0.15em 0.35em;
-  border-radius: 5px;
-  font-size: 0.9em;
-  font-weight: 300;
-  text-shadow: 0px 0px 2px var(--bgLight);
-}
-.home-icon svg:hover,
-.social-link:hover {
-  box-shadow: inset 0 0 6px var(--shadow);
-  text-decoration: none;
-}
-.home-icon svg:active,
-.social-link:active {
-  box-shadow: inset 0 0 10px var(--shadow);
+  justify-content: space-between;
 }
 .archive-table {
   width: 100%;
@@ -331,4 +312,28 @@ svg {
 main img {
   max-width: 100%;
   margin: 1em auto;
+}
+@media only screen and (max-width: 720px) {
+  .home-page-header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .header-info {
+    width: 98%;
+    align-items: center;
+  }
+  .main-title,
+  .about-narrative {
+    text-align: center;
+  }
+  .about-narrative {
+    margin: 0.5em 0 1.5em 0;
+  }
+  .share-text {
+    display: none;
+  }
+  .document-date {
+    margin: 0;
+  }
 }

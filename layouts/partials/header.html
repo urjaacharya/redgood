@@ -1,5 +1,5 @@
-<header {{ if .IsHome }}class="home-page-header" {{ end }}>
-  {{ if .IsHome }}
+{{ if .IsHome }}
+<header class="home-page-header">
   <div class="header-image-container">
     <div class="header-image">
       <img
@@ -8,22 +8,82 @@
       />
     </div>
   </div>
-  {{ end }}
   <div class="header-info">
-    {{ if not .IsHome }}
-    <a class="home-icon" href="{{ `/` | relURL }}" aria-label="home page">
-      {{ partial "homeIcon" . }}
-    </a>
-    {{ else }}
-    <h1 class="site-title">{{- .Site.Title -}}</h1>
-    {{ end }} {{ partial "title" . }} {{ if .IsHome }}
-    <div class="social-info">
+    <h1 class="main-title">{{- .Site.Title -}}</h1>
+    <p class="about-narrative">
+      {{ .Site.Params.about.narrative | markdownify }}
+    </p>
+    {{ $width := mul (len .Site.Params.social) 2 }}
+    <div class="social-info" style="width: {{ $width }}em;">
       {{- range $key, $val := .Site.Params.social -}}
-      <a class="social-link" href="{{ $val }}" aria-label="{{ $key }}">
-        {{- $key -}}
+      <a class="header-icon" href="{{ $val.url }}" aria-label="{{ $key }}"
+        ><i class="{{ $val.icon }}"></i>
       </a>
       {{- end -}}
     </div>
-    {{ end }}
   </div>
 </header>
+{{ else }}
+<header class="regular-page-header">
+  <div
+    style="
+      display: flex;
+      justify-content: space-between;
+      width: 98%;
+      margin-bottom: 0.5em;
+    "
+  >
+    <a class="header-icon" href="{{ `/` | relURL }}" aria-label="home page">
+      <i class="bi bi-house-door"></i>
+    </a>
+    <div
+      class="share-links"
+      style="
+        display: flex;
+        margin-left: 1em;
+        align-items: center;
+        width: 120px;
+        justify-content: space-between;
+      "
+    >
+      {{ $url := printf "%s" .URL | absLangURL }}
+      <a
+        class="header-icon"
+        href="mailto:?subject={{ print .Title ` by ` .Site.Params.author }}&amp;body={{ $url }}"
+        target="_self"
+        rel="noopener"
+        aria-label="share by email"
+        ><i class="bi bi-envelope"></i
+      ></a>
+      <a
+        class="header-icon"
+        href="https://facebook.com/sharer/sharer.php?u={{ $url }}"
+        target="_blank"
+        rel="noopener"
+        aria-label="share on facebook"
+        ><i class="bi bi-facebook"></i
+      ></a>
+      <a
+        class="header-icon"
+        href="https://twitter.com/intent/tweet/?text={{ print .Title ` by ` .Site.Params.author }}&amp;url={{ $url }}"
+        target="_blank"
+        rel="noopener"
+        aria-label="share on twitter"
+        ><i class="bi bi-twitter"></i
+      ></a>
+    </div>
+  </div>
+  <div class="page-title-and-info" style="text-align: center">
+    <h1 class="page-title">
+      {{ if or (eq .Kind "taxonomy") (eq .Kind "term") }}#{{ end }}{{ .Title }}
+    </h1>
+    {{ if eq .Kind "page" }}
+    <p class="document-date">
+      {{ dateFormat .Site.Params.theme.dateFormat .Date }} &middot; {{ .Site.Params.author }}
+    </p>
+    {{ if .Description }}
+    <p class="document-description">"{{ .Description }}"</p>
+    {{ end }} {{ end }}
+  </div>
+</header>
+{{ end }}
