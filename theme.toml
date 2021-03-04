@@ -6,8 +6,8 @@ license = "MIT"
 licenselink = "https://github.com/urjaacharya/redgood/blob/master/LICENSE"
 description = "Clean minimal javascript-less theme for blogs."
 homepage = "https://github.com/urjaacharya/redgood"
-tags = ["personal", "blog",]
-features = ["clean", "responsive", "minimal", "no javascript"]
+tags = ["personal", "blog", "clean", "responsive", "minimal", "red"]
+features = ["no javascript"]
 min_version = "0.80.0"
 
 [author]
