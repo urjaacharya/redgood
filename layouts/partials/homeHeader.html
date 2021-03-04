@@ -1,0 +1,17 @@
+<header class="home-page-header">
+  <div class="header-image-container">
+    <div class="header-image">
+      <img
+        src="{{ .Site.Params.about.profileImage | relURL }}"
+        alt="profile image of {{ .Site.Params.author }}"
+      />
+    </div>
+  </div>
+  <div class="header-info">
+    <h1 class="main-title">{{- .Site.Title -}}</h1>
+    <p class="about-narrative">
+      {{ .Site.Params.about.narrative | markdownify }}
+    </p>
+    {{ partial "social" . }}
+  </div>
+</header>

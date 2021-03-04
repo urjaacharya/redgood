@@ -1,0 +1,27 @@
+<header class="regular-page-header">
+  <div
+    style="
+      display: flex;
+      justify-content: space-between;
+      width: 98%;
+      margin-bottom: 0.5em;
+    "
+  >
+    <a class="header-icon" href="{{ `/` | relURL }}" aria-label="home page">
+      <i class="bi bi-house-door"></i>
+    </a>
+    {{ partial "share" . }}
+  </div>
+  <div class="page-title-and-info" style="text-align: center">
+    <h1 class="page-title">
+      {{ if or (eq .Kind "taxonomy") (eq .Kind "term") }}#{{ end }}{{ .Title }}
+    </h1>
+    {{ if eq .Kind "page" }}
+    <p class="document-date">
+      {{ dateFormat .Site.Params.theme.dateFormat .Date }} &middot; {{ .Params.author }}
+    </p>
+    {{ if .Description }}
+    <p class="document-description">"{{ .Description }}"</p>
+    {{ end }} {{ end }}
+  </div>
+</header>

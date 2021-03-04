@@ -1,15 +1,15 @@
 :root {
   --bg: whitesmoke;
-  --bgDark: #b3b3b3;
   --bgLight: white;
   --mainText: rgb(0, 0, 0);
   --secondaryText: rgb(105, 105, 105);
   --primary: #a3001b;
   --highlight: #b6ffb6;
   --shadow: black;
+  --inactive: grey;
 }
 html {
-  font-size: 16px;
+  font-size: 18px;
   overflow-y: scroll;
   background-color: var(--bg);
   box-sizing: border-box;
@@ -21,7 +21,7 @@ body {
   max-width: 900px;
   min-width: 250px;
   margin: auto;
-  font-size: 1.2em;
+  font-size: 1em;
   color: var(--mainText);
   border-radius: 5px;
   min-height: 100vh;
@@ -287,8 +287,9 @@ svg {
 .prev-next {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-bottom: 3em;
+  font-size: 1.5em;
 }
 .prev-next > div,
 .prev-next > a {
@@ -312,6 +313,9 @@ svg {
 main img {
   max-width: 100%;
   margin: 1em auto;
+}
+.disabled {
+  color: var(--inactive);
 }
 @media only screen and (max-width: 720px) {
   .home-page-header {

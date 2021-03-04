@@ -1,39 +1,37 @@
 <footer>
   {{ if eq .Kind "section" }}
-  <div>
-    {{ template "_internal/pagination.html" . }}
-  </div>
-  {{ end }} {{ if eq .Kind "page" }}
+  <div>{{ template "_internal/pagination.html" . }}</div>
+  {{ end }}
+  {{ if eq .Kind "page" }}
   <div class="prev-next">
     {{- if .PrevInSection }}
     <a
       class="active"
       href="{{ .PrevInSection.Permalink | relURL }}"
       aria-label="Previous Article"
-      >Previous</a
-    >
+      ><i class="bi bi-arrow-left-circle"></i
+    ></a>
     {{- else }}
-    <div class="disabled">N/A</div>
+    <div class="disabled"><i class="bi bi-arrow-left-circle"></i></div>
     {{- end }}
-    <a href="#" aria-label="navigate to top">Top</a>
+    <a href="#" aria-label="navigate to top"
+      ><i class="bi bi-box-arrow-in-up"></i></a>
     {{- if .NextInSection }}
     <a
       class="active"
       href="{{ .NextInSection.Permalink | relURL }}"
       aria-label="Next Article"
-      >Next</a
-    >
+      ><i class="bi bi-arrow-right-circle"></i
+    ></a>
     {{- else }}
-    <div class="disabled">N/A</div>
+    <div class="disabled"><i class="bi bi-arrow-right-circle"></i></div>
     {{- end }}
   </div>
   {{ end }}
 
   <div class="footer">
     <p>
-      {{ if .Site.Params.theme.copyrightInFooter }}
-      &copy;
-      {{end}}
+      {{ if .Site.Params.theme.copyrightInFooter }} &copy; {{end}}
       {{ dateFormat "2006" now }} {{ .Site.Params.author }}.
       {{ .Site.Params.theme.footerText | markdownify }}.
     </p>

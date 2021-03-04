@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{$paginator := .Paginate (where .Site.Pages "Kind" "page").ByDate.Reverse 50 }}
+{{$paginator := .Paginate (where .Site.Pages "Kind" "page").ByDate.Reverse 20 }}
 <div class="archive-table">
   {{ range $paginator.Pages }}
   {{ partial "listPage" . }}

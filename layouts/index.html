@@ -1,33 +1,6 @@
 {{ define "main" }}
-{{ range ((where .Site.Pages "Params.pinned" true).ByDate.Reverse) | first 1 }}
-<h2>
-  <a href="{{ .Permalink }}">{{ .Title }}</a>
-</h2>
-<div class="pinned-post home-page-card">
-  <p>{{ .Summary | plainify | truncate 250 }}</p>
-  <div class="home-page-card-links">
-    <a href="{{ .Permalink }}">
-      Read Pinned Post
-    </a>
-  </div>
-  <div class="home-page-card-links">
-    <a href="{{ `pinnedposts` | relURL }}">All Pinned</a>
-  </div>
-</div>
-{{ end }}
-
-<h3>Recent Posts</h3>
-<div class="recent-posts home-page-card">
-  {{ range ((where .Site.Pages "Kind" "page").ByDate.Reverse) | first 6 }}
-  {{ partial "listPage" . }}
-  {{ end }}
-  <div class="home-page-card-links">
-    <a href="{{ `archive` | relURL }}"
-      >All Posts</a
-    >
-  </div>
-</div>
-
+{{ partial "index/pinnedPost" . }}
+{{ partial "index/recentPost" . }}
 <h3>Sections</h3>
 <div class="site-sections home-page-card">
   {{ range .Site.Sections }}
