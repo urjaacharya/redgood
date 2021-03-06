@@ -1,51 +1,25 @@
-<footer>
+<footer class="shadow round-corner">
   {{ if eq .Kind "section" }}
   <div>{{ template "_internal/pagination.html" . }}</div>
+  {{ end }} {{ if eq .Kind "page" }}
+  <div class="prev-next">{{ partial "prevNext" .}}</div>
   {{ end }}
-  {{ if eq .Kind "page" }}
-  <div class="prev-next">
-    {{- if .PrevInSection }}
+  <p>
+    {{ if .Site.Params.theme.copyrightInFooter }}<span>&copy;</span>{{end}}
+    <span>{{ dateFormat "2006" now }}</span>
+    <span>{{ .Site.Params.author }}.</span>
+    <span>{{ .Site.Params.theme.footerText | markdownify }}.</span>
+  </p>
+  <p>
+    <a href="https://github.com/urjaacharya/redgood">
+      {{- print "redgood" -}}
+    </a>
+    by
     <a
-      class="active"
-      href="{{ .PrevInSection.Permalink | relURL }}"
-      aria-label="Previous Article"
-      ><i class="bi bi-arrow-left-circle"></i
-    ></a>
-    {{- else }}
-    <div class="disabled"><i class="bi bi-arrow-left-circle"></i></div>
-    {{- end }}
-    <a href="#" aria-label="navigate to top"
-      ><i class="bi bi-box-arrow-in-up"></i></a>
-    {{- if .NextInSection }}
-    <a
-      class="active"
-      href="{{ .NextInSection.Permalink | relURL }}"
-      aria-label="Next Article"
-      ><i class="bi bi-arrow-right-circle"></i
-    ></a>
-    {{- else }}
-    <div class="disabled"><i class="bi bi-arrow-right-circle"></i></div>
-    {{- end }}
-  </div>
-  {{ end }}
-
-  <div class="footer">
-    <p>
-      {{ if .Site.Params.theme.copyrightInFooter }} &copy; {{end}}
-      {{ dateFormat "2006" now }} {{ .Site.Params.author }}.
-      {{ .Site.Params.theme.footerText | markdownify }}.
-    </p>
-    <p>
-      <a href="https://github.com/urjaacharya/redgood">
-        {{- print "redgood" -}}
-      </a>
-      by
-      <a
-        href="https://www.urjaacharya.com/"
-        aria-label="link to urja acharya site"
-      >
-        {{- print "urja acharya" -}}
-      </a>
-    </p>
-  </div>
+      href="https://www.urjaacharya.com/"
+      aria-label="link to urja acharya site"
+    >
+      {{- print "urja acharya" -}}
+    </a>
+  </p>
 </footer>

@@ -6,11 +6,11 @@
 
 {{ range sort ($scratch.Get "custom") ".Num" "desc" }}
 {{ $taxaTypeName := .Name }}
-<h3>
+<h4 style="margin: 0;">
   {{ $taxaTypeName | humanize }}
-</h3>
+</h4>
 {{ $this_taxa := index $.taxo .Name }}
-<div class="taxa-container home-page-card">
+<div class="taxa-container">
   {{ range $this_taxa.ByCount }}
   {{ $taxaValueName := .Page.Title }}
     <a class="taxa" href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>

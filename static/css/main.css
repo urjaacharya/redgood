@@ -6,7 +6,7 @@
   --primary: #a3001b;
   --highlight: #b6ffb6;
   --shadow: black;
-  --inactive: grey;
+  --inactive: #949494;
 }
 html {
   font-size: 18px;
@@ -101,13 +101,12 @@ header {
   overflow: hidden;
   display: flex;
   justify-content: center;
-  box-shadow: 3px 3px 5px 3px black;
 }
-footer {
+.footer {
   margin-top: 3em;
   margin-bottom: 5px;
 }
-.footer {
+footer {
   text-align: center;
   background-color: var(--primary);
   color: var(--bg);
@@ -115,15 +114,14 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   min-height: 80px;
   font-size: 0.9em;
   font-weight: 300;
 }
-footer p {
+.footer p {
   margin: 0;
 }
-.footer a,
+footer a,
 .about-narrative a {
   color: var(--bg);
   text-decoration: underline;
@@ -178,7 +176,7 @@ h6 {
   font-size: 2.5em;
 }
 .page-title {
-  font-size: 1.75em;
+  font-size: 2.5em;
 }
 .front-matter {
   border-bottom: solid 3px var(--primary);
@@ -192,10 +190,9 @@ pre {
 }
 blockquote {
   border-left: solid 5px var(--secondaryText);
-  padding: 0.5em;
-  background-color: var(--bgLight);
-  border-radius: 2px;
-  box-shadow: 1px 1px 4px 1px var(--shadow);
+  padding: 0.25em;
+  display: block;
+  margin: 0 0 0 1em;
 }
 blockquote p {
   margin: 0;
@@ -214,16 +211,23 @@ td {
   border: solid 1px var(--primary);
   padding: 5px;
 }
-svg {
-  height: 1em;
-  width: 1em;
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    var(--primary),
+    rgba(0, 0, 0, 0)
+  );
+  margin: 1.5em 0;
 }
-.header-icon {
+.primary-icon {
   font-size: 1.5em;
   color: var(--bg);
   border-radius: 5px;
 }
-.header-icon:hover {
+.primary-icon:hover {
   text-shadow: 0px 0px 5px var(--highlight);
 }
 .social-info {
@@ -237,26 +241,31 @@ svg {
 .archive-table {
   margin-top: 1em;
 }
-.home-page-card {
+.card {
   background-color: var(--bgLight) !important;
   padding: 15px;
-  border-radius: 5px;
+  margin: 2em 0;
+}
+.shadow {
   box-shadow: 1px 1px 2px 1px var(--shadow);
 }
-.home-page-card > p:last-child {
+.round-corner {
+  border-radius: 5px;
+}
+.card > p:last-child {
   margin-bottom: 0;
 }
-.home-page-card > p:first-child {
+.card > p:first-child {
   margin-top: 0;
 }
-.home-page-card-links {
+.card-links {
   margin-top: 1em;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   display: inline-block;
 }
-.home-page-card-links a {
+.card-links a {
   background-color: var(--primary);
   color: var(--bg);
   margin-right: 10px;
@@ -265,17 +274,17 @@ svg {
   box-shadow: 3px 3px 5px 1px var(--shadow);
   transition: box-shadow 0.2s;
 }
-.home-page-card-links > a:hover {
+.card-links > a:hover {
   box-shadow: 1px 1px 5px 1px var(--shadow);
   text-decoration: none;
 }
-.home-page-card-links > a:active {
+.card-links > a:active {
   box-shadow: 0px 0px 1px 1px var(--shadow);
 }
 .taxa-container {
   display: flex;
   flex-wrap: wrap;
-  padding: 5px 11px;
+  padding: 1em 0;
 }
 .taxa::before {
   content: "#";
@@ -288,7 +297,7 @@ svg {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 3em;
+  margin-bottom: 1.5em;
   font-size: 1.5em;
 }
 .prev-next > div,
@@ -340,4 +349,53 @@ main img {
   .document-date {
     margin: 0;
   }
+}
+/* Pagination */
+ul.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+}
+li.page-item {
+  width: 2.5em;
+  height: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+li.page-item {
+  border-top: 1px solid var(--bgLight);
+  border-bottom: 1px solid var(--bgLight);
+  border-left: 1px solid var(--bgLight);
+  background-color: var(--primary);
+}
+li.page-item a {
+  text-decoration: none;
+  font-weight: 400;
+  width: 100% !important;
+}
+li.page-item.disabled a {
+  color: var(--inactiveColor);
+}
+li.page-item.active {
+  background-color: var(--bgLight);
+  text-shadow: 0px 0px 2px var(--bgLight);
+}
+li.page-item.active a {
+  color: var(--primary);
+}
+li.page-item:first-child {
+  border-radius: 5px 0 0 5px;
+}
+li.page-item:last-child {
+  border-radius: 0 5px 5px 0;
+  border-right: 1px solid var(--bgLight);
+}
+/* Grid */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(341px, 1fr));
+  grid-gap: 1em;
 }

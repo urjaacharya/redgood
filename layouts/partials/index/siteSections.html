@@ -1,0 +1,9 @@
+<h4 style="margin: 1em 0 1em 0;">Sections</h4>
+{{ range .Site.Sections }}
+{{ if not .Params.hideFromHome }}
+<p>
+  <a href="{{ .Permalink }}" aria-label="site sections">{{ .Title }}</a> -
+  {{ len .Pages}} Articles
+</p>
+{{ end }}
+{{ end }}

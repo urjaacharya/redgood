@@ -1,7 +1,7 @@
 {
   "baseURL": "https://www.example.org/",
   "languageCode": "en-us",
-  "title": "demo of redgood",
+  "title": "redgood",
   "theme": "redgood",
   "disableKinds": "taxonomyTerm",
   "params": {
@@ -10,7 +10,8 @@
     "theme": {
       "dateFormat": "2006-01-02",
       "copyrightInFooter": false,
-      "footerText": "customizable short *markdown* enabled text"
+      "footerText": "customizable short *markdown* enabled text",
+      "pinnedPosts": false
     },
     "about": {
       "profileImage": "images/profile.jpg",

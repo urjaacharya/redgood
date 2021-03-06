@@ -1,14 +1,11 @@
-{{ define "main" }}
-{{ partial "index/pinnedPost" . }}
-{{ partial "index/recentPost" . }}
-<h3>Sections</h3>
-<div class="site-sections home-page-card">
-  {{ range .Site.Sections }}
-  {{ if not .Params.hideFromHome }}
-  <p>
-    <a href="{{ .Permalink }}" aria-label="site sections">{{ .Title }}</a> - {{ len .Pages}} Articles
-  </p>
-  {{ end }} {{ end }}
+{{ define "main" }} {{ partial "index/pinnedPost" . }}
+<div class="grid-container">
+  <div class="recent-posts card shadow round-corner">
+    {{ partial "index/recentPost" . }}
+    {{ partial "index/siteSections" . }}
+  </div>
+  <div class="site-sections card shadow round-corner">
+    {{ partial "taxa" (dict "taxo" .Site.Taxonomies "mysite" .) }}
+  </div>
 </div>
-{{ partial "taxa" (dict "taxo" .Site.Taxonomies "mysite" .) }}
 {{ end }}

@@ -7,7 +7,10 @@
     {{ else }}
     {{ partial "regularHeader" . }}
     {{ end }}
-    <main>{{- block "main" . }} {{- end }}</main>
+    <main {{ if not .IsHome }}class="card shadow round-corner"{{ end }}>
+      {{- block "main" . }}
+      {{- end }}
+    </main>
     {{- partial "footer.html" . -}}
   </body>
 </html>

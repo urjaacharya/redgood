@@ -1,11 +1,11 @@
 {{ $width := mul (len .Site.Params.social) 2 }}
 <div class="social-info" style="width: {{ $width }}em;">
   {{- range $key, $val := .Site.Params.social -}} {{ if eq $key "email" }}
-  <a class="header-icon" href="mailto:{{- $val.url }}" aria-label="{{ $key }}"
+  <a class="primary-icon" href="mailto:{{- $val.url }}" aria-label="{{ $key }}"
     ><i class="{{ $val.icon }}"></i>
   </a>
   {{ else }}
-  <a class="header-icon" href="{{- $val.url }}" aria-label="{{ $key }}"
+  <a class="primary-icon" href="{{- $val.url }}" aria-label="{{ $key }}"
     ><i class="{{ $val.icon }}"></i>
   </a>
   {{ end }} {{- end -}}
