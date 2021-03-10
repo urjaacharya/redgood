@@ -1,17 +1,7 @@
-<div class="pinned-post card shadow round-corner">
-    <div class="card-links"></div>
+
     <h1 style="margin: 0"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
     <p class="document-date">
       {{ dateFormat .Site.Params.theme.dateFormat .Date }} &middot; {{ .Params.author }}
     </p>
-    <hr />
+    <hr class="red-hr"/>
     {{ .Content }}
-    {{ if .Site.Params.theme.pinnedPosts }}
-    <hr />
-    <a
-      href="{{ `pinnedposts` | relURL }}"
-      style="display: block; text-align: right"
-      >Previously Pinned Posts</a
-    >
-    {{ end }}
-  </div>

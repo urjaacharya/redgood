@@ -1,11 +1,11 @@
 :root {
   --bg: whitesmoke;
   --bgLight: white;
-  --mainText: rgb(0, 0, 0);
+  --mainText: #272822;
   --secondaryText: rgb(105, 105, 105);
   --primary: #a3001b;
   --highlight: #b6ffb6;
-  --shadow: black;
+  --shadow: var(--mainText);
   --inactive: #949494;
 }
 html {
@@ -36,6 +36,10 @@ p {
   margin: 1em 0 0.25em 0;
   line-height: 1.5em;
 }
+ol,
+ul {
+  line-height: 1.5em;
+}
 a {
   color: var(--primary);
   text-decoration: none;
@@ -45,7 +49,7 @@ a:hover {
 }
 header {
   background-color: var(--primary);
-  margin-top: 5px;
+  margin-top: 0.5em;
   display: flex;
   justify-content: start;
   flex-wrap: wrap;
@@ -77,11 +81,9 @@ header {
 .about-narrative,
 .page-title-and-info p {
   color: var(--bg);
-  text-shadow: 0px 0px 2px var(--bgLight);
   margin: 0.25em 0 1em 0;
   line-height: 1.5em;
-  font-size: 0.9em;
-  font-weight: 300;
+  font-size: 0.95em;
 }
 .header-image-container {
   height: 275px;
@@ -92,7 +94,7 @@ header {
   box-sizing: border-box;
 }
 .border {
-  border: solid 1px black;
+  border: solid 1px var(--mainText);
 }
 .header-image {
   height: 230px;
@@ -110,13 +112,13 @@ footer {
   text-align: center;
   background-color: var(--primary);
   color: var(--bg);
-  padding: 1em 5px;
+  padding: 1em 0.5em 0.5em 0.5em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 80px;
-  font-size: 0.9em;
-  font-weight: 300;
+  font-size: 0.95em;
+  margin-bottom: 0.5em;
 }
 .footer p {
   margin: 0;
@@ -130,7 +132,7 @@ footer a,
 pre,
 code {
   font-family: "Inconsolata", monospace;
-  font-size: 1em;
+  font-size: 1.05em;
   overflow: auto;
 }
 kbd {
@@ -173,7 +175,7 @@ h6 {
   text-shadow: 3px 3px var(--shadow);
 }
 .main-title {
-  font-size: 2.5em;
+  font-size: 3em;
 }
 .page-title {
   font-size: 2.5em;
@@ -211,7 +213,7 @@ td {
   border: solid 1px var(--primary);
   padding: 5px;
 }
-hr {
+.red-hr {
   border: 0;
   height: 1px;
   background-image: linear-gradient(
@@ -259,26 +261,18 @@ hr {
   margin-top: 0;
 }
 .card-links {
-  margin-top: 1em;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  display: inline-block;
-}
-.card-links a {
   background-color: var(--primary);
   color: var(--bg);
-  margin-right: 10px;
   padding: 5px 5px;
   border-radius: 5px;
   box-shadow: 3px 3px 5px 1px var(--shadow);
   transition: box-shadow 0.2s;
 }
-.card-links > a:hover {
+.card-links:hover {
   box-shadow: 1px 1px 5px 1px var(--shadow);
   text-decoration: none;
 }
-.card-links > a:active {
+.card-links:active {
   box-shadow: 0px 0px 1px 1px var(--shadow);
 }
 .taxa-container {
@@ -296,8 +290,8 @@ hr {
 .prev-next {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 1.5em;
+  justify-content: space-around;
+  margin-bottom: 0.5em;
   font-size: 1.5em;
 }
 .prev-next > div,

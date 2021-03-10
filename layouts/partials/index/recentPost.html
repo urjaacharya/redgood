@@ -1,9 +1,7 @@
-
-<h4 style="margin:0 0 1em 0;">Recent Posts</h4>
-  {{ range ((where .Site.Pages "Kind" "page").ByDate.Reverse) | first 6 }}
-  {{ partial "listPage" . }}
-  {{ end }}
-  <div class="card-links">
-    <a href="{{ `archive` | relURL }}">All Posts</a>
-  </div>
-
+<h4 style="margin: 0 0 1em 0">Recent Posts</h4>
+{{ range ((where .Site.Pages "Kind" "page").ByDate.Reverse) | first 6 }}
+{{ partial "listPage" . }}
+{{ end }}
+<div style="margin-top: 1.5em;">
+<a class="card-links" href="{{ `archive` | relURL }}">All Posts</a>
+</div>

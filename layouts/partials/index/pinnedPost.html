@@ -1,9 +1,17 @@
+<div class="pinned-post card shadow round-corner">
 {{ if .Site.Params.theme.pinnedPosts }}
   {{ range ((where .Site.Pages "Params.pinned" true).ByDate.Reverse) | first 1 }}
     {{ partial "index/homePageArticle" . }}
   {{ end }}
+  <hr class="red-hr"/>
+  <div style="text-align: right; margin-bottom: 1em;">
+  <a class="card-links"
+    href="{{ `pinnedposts` | relURL }}"
+    >Previously Pinned Posts</a
+  ></div>
 {{ else }}
   {{ range site.RegularPages | first 1 }}
     {{ partial "index/homePageArticle" . }}
   {{ end }}
 {{ end }}
+</div>
