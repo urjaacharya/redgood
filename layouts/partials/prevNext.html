@@ -1,22 +1,24 @@
+{{if or .PrevInSection .NextInSection }}
 {{- if .PrevInSection }}
     <a
-      class="active primary-icon"
+      class="active icon"
       href="{{ .PrevInSection.Permalink | relURL }}"
       aria-label="Previous Article"
-      ><i class="bi bi-arrow-left-circle"></i
+      ><i class="bi bi-arrow-left-circle-fill"></i
     ></a>
     {{- else }}
-    <div class="disabled"><i class="bi bi-arrow-left-circle"></i></div>
+    <div class="disabled icon"><i class="bi bi-arrow-left-circle-fill"></i></div>
     {{- end }}
 
     {{- if .NextInSection }}
     <a
-      class="active primary-icon"
+      class="active icon"
       href="{{ .NextInSection.Permalink | relURL }}"
       aria-label="Next Article"
-      ><i class="bi bi-arrow-right-circle"></i
+      ><i class="bi bi-arrow-right-circle-fill"></i
     ></a>
     {{- else }}
-    <div class="disabled"><i class="bi bi-arrow-right-circle"></i></div>
+    <div class="disabled icon"><i class="bi bi-arrow-right-circle-fill"></i></div>
     {{- end }}
   </div>
+  {{ end }}

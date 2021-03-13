@@ -6,9 +6,9 @@
 
 {{ range sort ($scratch.Get "custom") ".Num" "desc" }}
 {{ $taxaTypeName := .Name }}
-<h4 style="margin: 0;">
+<h6>
   {{ $taxaTypeName | humanize }}
-</h4>
+</h6>
 {{ $this_taxa := index $.taxo .Name }}
 <div class="taxa-container">
   {{ range $this_taxa.ByCount }}

@@ -8,12 +8,12 @@
     "
   >
     <a class="primary-icon" href="{{ `/` | relURL }}" aria-label="home page">
-      <i class="bi bi-house-door"></i>
+      <i class="bi bi-house-fill"></i>
     </a>
-    {{ partial "share" . }}
+    
   </div>
   <div class="page-title-and-info" style="text-align: center">
-    <h1 class="page-title">
+    <h1 class="page-title" {{ if not (eq .Kind `page`) }}style="margin-bottom: 1em;"{{ end }}>
       {{ if or (eq .Kind "taxonomy") (eq .Kind "term") }}#{{ end }}{{ .Title }}
     </h1>
     {{ if eq .Kind "page" }}

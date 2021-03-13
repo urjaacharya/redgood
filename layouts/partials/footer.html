@@ -1,30 +1,56 @@
-<footer class="shadow round-corner">
+<footer>
+  <!-- Pagination for list pages -->
   {{ if eq .Kind "section" }}
   <div>{{ template "_internal/pagination.html" . }}</div>
-  {{ end }} {{ if eq .Kind "page" }}
+  {{ end }}
+  <!-- Previous/Next articles -->
+  {{ if eq .Kind "page" }}
   <div class="prev-next">{{ partial "prevNext" .}}</div>
   {{ end }}
-  <p>
-    {{ if .Site.Params.theme.copyrightInFooter }}<span>&copy;</span>{{end}}
-    <span>{{ dateFormat "2006" now }}</span>
-    <span>{{ .Site.Params.author }}.</span>
-    <span>{{ .Site.Params.theme.footerText | markdownify }}.</span>
-  </p>
-  <p>
-    <a href="https://github.com/urjaacharya/redgood">
-      {{- print "redgood" -}}
-    </a>
-    by
-    <a
-      href="https://www.urjaacharya.com/"
-      aria-label="link to urja acharya site"
-    >
-      {{- print "urja acharya" -}}
-    </a>
-  </p>
-  <div style="text-align: right; margin-bottom: 0.25em;">
-    <a class="primary-icon to-top" href="#" aria-label="navigate to top"
-      ><i class="bi bi-box-arrow-in-up"></i
-    ></a>
+  <div class="footer shadow round-corner">
+    <!-- Recent Posts -->
+    <div class="grid-container">
+      <div class="footer-recent-posts">
+        <h6>Recent Posts</h6>
+        <ol>
+          {{ range ((where .Site.Pages "Kind" "page").ByDate.Reverse) | first 7 }}
+          <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+          {{ end }}
+        </ol>
+        <a href="{{ `archive` | relURL }}">...ALL POSTS</a>
+        <hr class="mobile white-hr" />
+      </div>
+      <div>
+        {{ partial "index/siteSections.html" . }}
+        {{ partial "taxa" (dict "taxo" .Site.Taxonomies "mysite" .) }}
+        <hr class="mobile white-hr" />
+      </div>
+    </div>
+    <!-- Footer info from config -->
+    <div class="footer-info-text">
+      <p>
+        {{ if .Site.Params.theme.copyrightInFooter }}<span>&copy;</span>{{end}}
+        <span>{{ dateFormat "2006" now }}</span>
+        <span>{{ .Site.Params.author }}.</span>
+        <span>{{ .Site.Params.theme.footerText | markdownify }}.</span>
+      </p>
+      <p>
+        <a href="https://github.com/urjaacharya/redgood">
+          {{- print "redgood" -}}
+        </a>
+        by
+        <a
+          href="https://www.urjaacharya.com/"
+          aria-label="link to urja acharya site"
+        >
+          {{- print "urja acharya" -}}
+        </a>
+      </p>
+    </div>
+    <div style="text-align: right; margin-bottom: 0.25em; font-size: 1.2em">
+      <a class="primary-icon to-top" href="#" aria-label="navigate to top">
+        <i class="bi bi-arrow-up-circle-fill"></i>
+      </a>
+    </div>
   </div>
 </footer>

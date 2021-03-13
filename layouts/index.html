@@ -1,11 +1,3 @@
-{{ define "main" }} {{ partial "index/pinnedPost" . }}
-<div class="grid-container">
-  <div class="recent-posts card shadow round-corner">
-    {{ partial "index/recentPost" . }}
-    {{ partial "index/siteSections" . }}
-  </div>
-  <div class="site-sections card shadow round-corner">
-    {{ partial "taxa" (dict "taxo" .Site.Taxonomies "mysite" .) }}
-  </div>
-</div>
+{{ define "main" }}
+{{ partial "index/pinnedPost" . }}
 {{ end }}
