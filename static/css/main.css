@@ -1,5 +1,6 @@
 :root {
   --bg: whitesmoke;
+  --altbg: #f1f1f1;
   --bgLight: white;
   --mainText: #272822;
   --secondaryText: rgb(105, 105, 105);
@@ -17,7 +18,7 @@ html {
 }
 body {
   font-family: "Quicksand", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   max-width: 900px;
   min-width: 250px;
   margin: auto;
@@ -28,6 +29,8 @@ body {
   display: flex;
   flex-direction: column;
   padding: 0 10px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 main {
   flex: 1;
@@ -127,9 +130,10 @@ footer {
 }
 pre,
 code {
-  font-family: "Inconsolata", monospace;
-  font-size: 1.05em;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 1em;
   overflow: auto;
+  line-height: 1.3em;
 }
 kbd {
   background-color: var(--bgLight);
@@ -168,7 +172,7 @@ h6 {
 .page-title {
   color: var(--bg);
   margin: 0;
-  text-shadow: 0 0 3px var(--shadow);
+  text-shadow: 3px 3px 0 var(--shadow);
 }
 .main-title {
   font-size: 3em;
@@ -187,6 +191,7 @@ pre {
   color: white;
 }
 blockquote {
+  background-color: var(--altbg);
   border-left: solid 5px var(--secondaryText);
   padding: 0.25em;
   display: block;
@@ -228,9 +233,9 @@ td {
   height: 1px;
   background-image: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0),
+    rgba(255, 255, 255, 0),
     var(--bgLight),
-    rgba(0, 0, 0, 0)
+    rgba(255, 255, 255, 0)
   );
   margin: 1.5em 0;
 }
